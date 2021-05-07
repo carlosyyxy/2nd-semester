@@ -30,5 +30,8 @@ void main2() {
     (*((*((*s).next)).next)).info = 1; /*El nodo que le sigue a s es p y el que
     le sigue a p es r. R valdrá 1.*/
     p = (*s).next; //P es igualado al siguiente de s que sigue siendo p.
-    cout<<((*p).info+(*s).info+(*r).info); // Imprime por pantala 2+1+3
+    cout<<((*p).info+(*s).info+(*r).info)<<endl; // Imprime por pantala 2+3+1
+    cout<<"p.info: "<<p->info<<endl;
+    cout<<"s.info: "<<s->info<<endl;
+    cout<<"r.info: "<<r->info<<endl;
 }
