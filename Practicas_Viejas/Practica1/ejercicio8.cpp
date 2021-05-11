@@ -20,9 +20,9 @@ void main2() {
     p = new node; //Se reserva un espacio de memoria para p
     s = new node; //Se reserva un espacio de memoria para s
     r = new node; //Se reserva un espacio de memoria para r
-    (*p).next = r; //el siguiente nodo de p será r.
-    (*r).next = s; //el siguiente nodo de p será s.
-    (*s).next = p; //el siguiente nodo de p será p.
+    (*p).next = r; //r sera el siguiente nodo de p.
+    (*r).next = s; //s sera el siguiente nodo de r.
+    (*s).next = p; //p sera el siguiente nodo de s.
     (*s).info = 3; //el valor de info de s valdrá 3
     (*((*((*((*p).next)).next)).next)).info = 2; /*El siguiente nodo
     de p, es r, el que le sigue es s y el que le sigue a s es p, es decir el info

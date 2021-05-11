@@ -31,6 +31,7 @@ void main2() {
       *z = a; //Se le asigna al puntero de z el valor de a, es decir 3
       z = x; //Ahora z iguala el valor y la direccion de memoria de x
       cout<<"*x: "<<*x<<"  "<<"*y: "<<*y<<"  "<<"*w: "<<*w<<"  "<<"*z: "<<*z<<"  "<<"a: "<<a<<"  "<<"b: "<<b<<"  "<<"c: "<<c<<endl;
+      //x=1 y=2 w=g z=1 a=3 b=a c=false
       delete y; //Se elimina a Y.
       
 
