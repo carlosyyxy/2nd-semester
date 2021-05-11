@@ -1,37 +1,33 @@
-/*Ejercicio 3: Para las siguientes instrucciones, construya el estado de todas
- las variables en la memoria(de forma gráfica) que muestre que ocurre en ella,
- y cuál es la salida del programa.*/
+/*Ejercicio 1: Defina una estructura de datos que permita almacenar eventos de un calendario.
+Esta no debe registrar eventos de fechas inexistentes. Asuma que su calendario funciona para un
+sólo año. Además se desea conocer el día de la semana en que ocurre el evento. */
 
 #include<iostream>
 using namespace std;
-struct node {
- int info;
- node *next;
-};
-void main2();
+struct Eventos{
+  string nombre;
+  int dia, mes;
+} fecha;
 
 int main(){
-  main2();
-  return 0;
-}
+  int totaldias=0;
+  cout<<"---Eventos del caldendario---"<<endl;
+  do{
+    fflush(stdin);
+    cout<<"Nombre del evento: ";getline(cin, fecha.nombre);
+    cout<<"Dia: ";cin>>fecha.dia;
+    cout<<"Mes: ";cin>>fecha.mes;
+  } while(fecha.dia>30 || fecha.mes>12);
+  totaldias=fecha.mes*30+fecha.dia-30;
+  switch (totaldias%7) {
+    case 0:cout<<endl<<fecha.nombre<<" cae domingo";break;
+    case 1:cout<<endl<<fecha.nombre<<" cae lunes";break;
+    case 2:cout<<endl<<fecha.nombre<<" cae martes";break;
+    case 3:cout<<endl<<fecha.nombre<<" cae miercoles";break;
+    case 4:cout<<endl<<fecha.nombre<<" cae jueves";break;
+    case 5:cout<<endl<<fecha.nombre<<" cae viernes";break;
+    case 6:cout<<endl<<fecha.nombre<<" cae sabado";break;
+  }
 
-void main2() {
-    node *p, *r, *s;
-    p = new node; //Se reserva un espacio de memoria para p
-    s = new node; //Se reserva un espacio de memoria para s
-    r = new node; //Se reserva un espacio de memoria para r
-    (*p).next = r; //el siguiente nodo de p será r.
-    (*r).next = s; //el siguiente nodo de p será s.
-    (*s).next = p; //el siguiente nodo de p será p.
-    (*s).info = 3; //el valor de info de s valdrá 3
-    (*((*((*((*p).next)).next)).next)).info = 2; /*El siguiente nodo
-    de p, es r, el que le sigue es s y el que le sigue a s es p, es decir el info
-    de p valdrá 2*/
-    (*((*((*s).next)).next)).info = 1; /*El nodo que le sigue a s es p y el que
-    le sigue a p es r. R valdrá 1.*/
-    p = (*s).next; //P es igualado al siguiente de s que sigue siendo p.
-    cout<<((*p).info+(*s).info+(*r).info)<<endl; // Imprime por pantala 2+3+1
-    cout<<"p.info: "<<p->info<<endl;
-    cout<<"s.info: "<<s->info<<endl;
-    cout<<"r.info: "<<r->info<<endl;
+  return 0;
 }

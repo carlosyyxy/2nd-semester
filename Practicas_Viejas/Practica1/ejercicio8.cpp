@@ -1,42 +1,37 @@
-/*Ejercicio 8:  Dada la siguiente secuencia de instrucciones indique que ocurre en cada línea.
-Indique además si queda algún elemento por liberar de memoria al terminar recorrido( ).*/
+/*Ejercicio 3: Para las siguientes instrucciones, construya el estado de todas
+ las variables en la memoria(de forma gráfica) que muestre que ocurre en ella,
+ y cuál es la salida del programa.*/
 
 #include<iostream>
 using namespace std;
-class node {
- public:
+struct node {
  int info;
  node *next;
-} *p, *q;
-
-void recorrido();
+};
+void main2();
 
 int main(){
-  recorrido();
+  main2();
   return 0;
 }
 
-void recorrido() {
-    p = new node; //se reserva un espacio de memoria para p
-    (*p).info = 10; //se le asigna al info de p el numero 10
-    (*p).next = p; //el nodo siguiente de p es igualado a su predecesor
-    q = new node; //se reserva un espacio de memoria para q
-    (*p).next = q; //el nodo siguiente de p ahora es igualado a q
-    (*q).info = (*p).info + 3; //se le asigna a la info de p (10) + 3=13
-    (*q).next = p; // el siguiente de q es igual a p
-    (*q).next = NULL; //el siguiente nodo de q es apuntado a nulo
-    q = new node; //se reserva un nuevo espacio para q
-    (*q).info = (*p).info + (*((*p).next)).info; //se la asigna al info de q
-    //la suma de p y su sucesor, es decir 10+13=23
-    (*((*p).next)).next = q; //al sucesor del sucesor de p se le iguala a q.
-    (*q).next = NULL; //el siguiente de q es igual a nullo
-    q = p; //q es igualado a p
-    while (q != NULL){
-        //cout<<((*q).info)<<endl;
-        q = (*q).next;
-    }
-    cout<<(*p).info<<endl;
-    cout<<(*(*p).next).info<<endl;
-    cout<<(*(*(*p).next).next).info<<endl;
-    //Falta liberar todos los espacios de memorias ocupados por p
+void main2() {
+    node *p, *r, *s;
+    p = new node; //Se reserva un espacio de memoria para p
+    s = new node; //Se reserva un espacio de memoria para s
+    r = new node; //Se reserva un espacio de memoria para r
+    (*p).next = r; //el siguiente nodo de p será r.
+    (*r).next = s; //el siguiente nodo de p será s.
+    (*s).next = p; //el siguiente nodo de p será p.
+    (*s).info = 3; //el valor de info de s valdrá 3
+    (*((*((*((*p).next)).next)).next)).info = 2; /*El siguiente nodo
+    de p, es r, el que le sigue es s y el que le sigue a s es p, es decir el info
+    de p valdrá 2*/
+    (*((*((*s).next)).next)).info = 1; /*El nodo que le sigue a s es p y el que
+    le sigue a p es r. R valdrá 1.*/
+    p = (*s).next; //P es igualado al siguiente de s que sigue siendo p.
+    cout<<((*p).info+(*s).info+(*r).info)<<endl; // Imprime por pantala 2+3+1
+    cout<<"p.info: "<<p->info<<endl;
+    cout<<"s.info: "<<s->info<<endl;
+    cout<<"r.info: "<<r->info<<endl;
 }
