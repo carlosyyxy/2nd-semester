@@ -18,15 +18,15 @@ cantante concurso[25];
 
 /* ---Costo en memoria---
 
-CM(sex) = 2;
+CM(sex) = 1;
 CM(cancion) = mp + np + 1;
 
-CM(cantante) = op + 9 + 3 * (mp + np + 1) + 1 + 2;
-CM(cantante) = op + 15 * (mp + np + 1) ;
-CM(cantante) = 15mp + 15np + 15 + op;
+CM(cantante) = op + 9 + 2 * (mp + np + 1) + 1 + 2;
+CM(cantante) = op + 14 * (mp + np + 1) ;
+CM(cantante) = 15mp + 15np + 14 + op;
 
-CM(concurso) = (15mp + 15np + 15 + op) * 25;
-CM(concurso) = 375mp + 375np + 375 + 25op; 
+CM(concurso) = (15mp + 15np + 14 + op) * 25;
+CM(concurso) = 375mp + 375np + 374 + 25op; 
 
 
 ---Cardinalidad---

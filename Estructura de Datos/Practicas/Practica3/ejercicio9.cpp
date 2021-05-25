@@ -1,26 +1,23 @@
-/*Ejercicio 8. Elabore una función recursiva que reciba como parámetro un arreglo de caracteres que
-representan una palabra y retorne verdadero si ésta es capicúa. */
+/*Ejercicio 9. Escriba funciones recursivas para calcular el resultado de cada una de las siguientes series
+matemáticas, asumiendo que se recibe como parámetro el valor de n*/
 
 #include <iostream>
 using namespace std;
-float fraccion(float x);
 
+float fraccion(float x);
 int main() {
-  int x;
+  float x;
   cout << "Numero: ";
   cin >> x;
-
-  cout << "Resultado: " << fraccion(x);
-
-
-    return 0;
+  cout << "Resultado: " << fraccion(x) << endl;
+  return 0;
 }
 
 float fraccion(float x) {
-  float resultado;
-  if(x==1)
+  if (x == 1) {
     return 1;
-  else{
-    return 1 / x + 1 /( x - 1);
+  } else {
+    return (1 / x) + (1 / fraccion(x - 1));
+    return (1 / x) + fraccion(x - 1);
   }
 }
