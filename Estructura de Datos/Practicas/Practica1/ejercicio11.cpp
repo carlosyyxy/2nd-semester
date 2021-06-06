@@ -17,7 +17,7 @@ void main2() {
       x = new int;  //Se reserva/crea un espacio de memoria para x
       y = new int; //Se reserva/crea un espacio de memoria para y
       w = new char; //Se reserva/crea un espacio de memoria para w
-      *x=1; *y=2; a=4, *w='a', b='b';
+      *x=1; a=4, *w='a', b='b';
       x = y; //x ahora tendrá la dirección de memoria de y con sus valores
       b = *w; //b ahora tendrá el valor almacenado en w, es decir a.
       z = new int; *z=10;//Se reserva/crea un espacio de memoria para z

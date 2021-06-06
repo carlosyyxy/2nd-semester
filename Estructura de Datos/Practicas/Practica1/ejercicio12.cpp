@@ -32,7 +32,7 @@ void recorrido() {
     (*q).next = NULL; //el siguiente de q es igual a nullo
     q = p; //q es igualado a p
     while (q != NULL){
-        //cout<<((*q).info)<<endl;
+        cout<<((*q).info)<<endl;
         q = (*q).next;
     }
     cout<<(*p).info<<endl;

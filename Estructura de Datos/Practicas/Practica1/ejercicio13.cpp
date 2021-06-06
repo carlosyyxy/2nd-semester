@@ -39,4 +39,5 @@ void recorrido(){
   }
   delete arr;
   delete mat; // ¿a quién apunta arr? ¿podría acceder arr[0]?
+  cout <<endl<< "final: " << arr[0] << endl;
 }

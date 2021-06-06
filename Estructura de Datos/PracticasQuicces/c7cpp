@@ -1,0 +1,20 @@
+/*14. Realice la traza del siguiente algoritmo. En cada línea, indique el estado de las estructuras de
+datos gráficamente, y en caso de que la instrucción sea incorrecta, señale el tipo de error.
+struct node {
+ int info;
+ node *next;
+};
+node **p, **s, *q, *r;
+1 p = &q; //
+2 (*q).info = 30;
+3 (*q).next = NULL;
+4 r = new node;
+5 (*r).info = 2;
+6 s = &r;
+7 delete q;
+8 q = new node;
+9 (*q).info = 31;
+10 (*s).next = q;
+11 (*(*p)).info = (*q).info + (*((*(*s)).next)).info;
+
+*/

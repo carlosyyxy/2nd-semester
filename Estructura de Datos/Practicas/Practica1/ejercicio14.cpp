@@ -18,7 +18,8 @@ void main2(){
     q = new node;
     (*q).info = 30; //es necesario reservar un espacio de memoria para q y el info de q es igualado a 30
     (*q).next = NULL; //el next de q es igualado a nulo
-    r = new node; //se reserva un espacio de memoria para r (*r).info = 2; //se le asigna 2 al info de r
+    r = new node; //se reserva un espacio de memoria para r 
+    (*r).info = 2; //se le asigna 2 al info de r
     s = &r; //s recibe por referencia los valores de r
     delete q; //se elimina q
     q = new node; //se reserva un espacio de memoria para q

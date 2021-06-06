@@ -22,7 +22,7 @@ void main2() {
     p = new node; //Reserva un espacio de memoria para p.
     e = new int; //Reserva un espacio de memoria para e
     *e = 0;  //El valor dentro de la variable de e es igualado a 0
-    f = &e; // a F se le asigna por referencia la posición de memoria de E, es decir vale 0.
+    f = &e; // a **f se le asigna por referencia la posición de memoria de E, es decir vale 0.
     (*p).next = new node; //Se reserva el espacio de memoria para el nodo siguiente de p
     q = &(*p); //q es igualado a la posicion de memoria de p
     p = (*p).next; //p ahora es igualado a su siguiente nodo
@@ -33,6 +33,7 @@ void main2() {
     p = (*p).next; //p tiene el valor y la posicion de su siguiente nodo
     (*p).next = NULL; //el siguiente nodo de p ahora es nulo
     while(q != NULL){ //mientras que q sea distinto de nulo
+        cout << "*e: " << *e << " **f: " << **f << " (*q).info " << (*q).info << endl;
         *e = **f + (*q).info; //el valor de e será la suma de f y de la info de q
         cout<<"*e: "<<*e<<" **f: "<<**f<<" (*q).info "<<(*q).info<<endl;
         q = (*q).next; //q ahora sera su siguiente nodo
