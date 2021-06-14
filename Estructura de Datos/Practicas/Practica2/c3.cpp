@@ -21,28 +21,29 @@ cantante concurso[25];
 CM(sex) = 1;
 CM(cancion) = mp + np + 1;
 
-CM(cantante) = op + 9 + 2 * (mp + np + 1) + 1 + 2;
-CM(cantante) = op + 14 * (mp + np + 1) ;
-CM(cantante) = 15mp + 15np + 14 + op;
+CM(cantante) = op + 9 + (3 * (mp + np + + 1)) + 1 + 1;
+CM(cantante) = op + 11 + 3mp + 3np + 3;
+CM(cantante) = 14 + 3mp + 3np + op;
 
-CM(concurso) = (15mp + 15np + 14 + op) * 25;
-CM(concurso) = 375mp + 375np + 374 + 25op; 
+CM(concurso) ((14+3mp+3np+ op) * 25) = 350 + 75mp + 75np + 25op; */
 
-
----Cardinalidad---
+/* ---Cardinalidad---
 
 card(sex) = 2;
 card(Cancion) = 2^mp * 2^np * 2;
 
-card(cantante) = 2^op * 2^9 * (2^mp * 2^np * 2)^3 * 2 * 2;
-card(cantante) = 2^op * 2^11 * (6^mp * 6^np * 2^3);
-card(cantante) = 2^14 * 2^op * 6^mp * 6^np
+card(cantante) = 2^op * 2^9 * (2^(mp * np * 2)^3) * 2 * 2;
+card(cantante) = 2^op * 2^11 * (2 ^ 3mp * 3np * 6);
 
+card(concurso) = 2 ^ ((2^op * 2^11 * 2 ^ (3mp * 3np * 6))^25)
+card(concurso) = 2 ^ (2^25op * 2^275 * 2 ^(75mp * 75np * 150))
 
----Formula de acceso---
+*/
+
+/* ---Formula de acceso---
 
 concurso[i].canciones[j].nombre = 
 
-dirbase + i *(2^14 * 2^op * 6^mp * 6^np) + op + 9 + j * (mp + np + 1);
+dirbase + i * (14+3mp+3np+ op) + 1 + mp + np + 1 + j * (mp + np + 1);
 
 */

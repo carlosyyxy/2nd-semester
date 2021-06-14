@@ -1,53 +1,61 @@
 #include <iostream>
 using namespace std;
 
-void findSum(int arr[], int n, int partial, int total);
-void printSet();
-void addSet(int i);
-void removeSet();
+void SumaElementos(int arr[], int longitud, int k, int partial = 0);
+void ImprimeElementos(int arr[]);
+void AgregaSolucion(int arr[], int number);
+void EliminarSolucion(int arr[], int longitud);
 
-int longitud = 3;
 int arr[] = {1, 2, 3};
-int total = 4, j=0;
-int solucion[15];
+int Solucion[] = {0, 0, 0};
+int cont = 0;
 
 int main() {
-    findSum(arr, 3, 0, total);
-    return 0;
+    SumaElementos(arr, 3, 3);
 }
 
-void findSum(int arr[], int n, int partial, int total) {
-    //cout << "partial= " << partial << " total= " << total << endl;
-    if (partial == total)
-        //printSet();
-        1;
-    else
-        for (int i = 0; i < n; i++)
-            if (partial + arr[i] <= total) {
-                addSet(i);
-                findSum(arr, n, partial + arr[i], total);
-                removeSet();
+void SumaElementos(int arr[], int longitud, int k, int partial) {
+    //cout << "partial= " << partial << " total= " << k << endl;
+    if (partial == k) {
+        //cout << "---PARTIAL: " << partial << endl;
+        ImprimeElementos(Solucion); //Caso Base
+    } else {
+        for (int i = 0; i < longitud; i++) {
+            cout << endl
+                 << "----ITERACION: " << i << "----" << endl
+                 << endl;
+            if (partial + arr[i] <= k) {
+                cont++;
+                AgregaSolucion(Solucion, arr[i]);
+                SumaElementos(arr, longitud, k, partial + arr[i]);
+                cout << "---PARTIAL: " << partial << endl;
+
+                cont--;
+                EliminarSolucion(Solucion, cont);
             }
+        }
+    }
 }
 
-void printSet() {
-    for (int i = 0; i < total; i++) {
-        if (solucion[i] !=0)
-            cout << solucion[i] << " ";
+void ImprimeElementos(int arr[]) {
+    for (int i = 0; i < cont; i++) {
+        cout << arr[i] << " ";
     }
     cout << endl;
 }
 
-void addSet(int i) {
-    cout << i<< ". arr[" << i << "] = " << arr[i] << endl;
-    solucion[j] = arr[i];
-    //cout << j << ". solucion[" << j << "] = " << solucion[j] << endl;
-    j++;
+void AgregaSolucion(int arr[], int number) {
+    //cout<<"solucion["<<cont-1<<"] = "<<number<<endl;
+    cout << "---agregando---" << endl;
+
+    arr[cont - 1] = number;
+    cout << "solucion[" << cont - 1 << "] = " << arr[cont - 1] << endl;
 }
 
-void removeSet() {
-    for (int j = 0; j < total;j++)
-        solucion[j] = 0;
+void EliminarSolucion(int arr[], int longitud) {
+    cout << "---eliminando---" << endl;
+    //cout << "solucion[" << longitud << "] = " << longitud << endl;
+    cout << "solucion[" << longitud << "] = " << arr[longitud] << endl;
 
-    j = 0;
+    arr[longitud] = 0;
 }

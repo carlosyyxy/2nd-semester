@@ -18,9 +18,12 @@ typedef producto almacen[100];
 almacen supermercado[10];
 
 /*---Costo en memoria---
-CM(producto)= 1 + mp + np + 1 + 1 + 1 + op = 4 + mp + np + op
-CM(almacen) = (4 + mp + np + op ) * 100 = 400 + 100mp + 100np + 100op;
-CM(supermercado) = (400 + 100mp + 100np + 100op) * 10 = 4000 + 1000mp + 1000 np + 1000 op; 
+CM(producto)= 1 + mp + np + 1 + 1 + 1 + op 
+CM(producto)= 4 + mp + np + op
+CM(almacen) = (4 + mp + np + op ) * 100 
+CM(almacen) = 400 + 100mp + 100np + 100op;
+CM(supermercado) = (400 + 100mp + 100np + 100op) * 10 
+CM(supermercado) = 4000 + 1000mp + 1000 np + 1000 op; 
 
 
 ---Cardinalidad---

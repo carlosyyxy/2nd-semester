@@ -13,13 +13,13 @@ void ImprimeElementos(int arr[]);
 void AgregaSolucion(int arr[], int number);
 void EliminarSolucion(int arr[], int longitud);
 
-int arr[] = {1, 2, 3};
-int Solucion[] = {0, 0, 0, 0};
+int arr[] = {1, 2, 3, 4, 5};
+int Solucion[] = {0, 0, 0, 0, 0};
 int cont = 0;
 
 
 int main() {
-    SumaElementos(arr, 3, 4);
+    SumaElementos(arr, 3, 5);
 }
 
 void SumaElementos(int arr[], int longitud, int k, int partial) {
@@ -48,17 +48,17 @@ void ImprimeElementos(int arr[]) {
 
 void AgregaSolucion(int arr[], int number) {
     //cout<<"solucion["<<cont-1<<"] = "<<number<<endl;
-    cout << "---agregando---" << endl;
+   // cout << "---agregando---" << endl;
 
     arr[cont - 1] = number;
-    cout << "solucion[" << cont - 1 << "] = " << arr[cont - 1] << endl;
+   // cout << "solucion[" << cont - 1 << "] = " << arr[cont - 1] << endl;
 
     }
 
 void EliminarSolucion(int arr[], int longitud) {
-    cout << "---eliminando---" << endl;
+   // cout << "---eliminando---" << endl;
     //cout << "solucion[" << longitud << "] = " << longitud << endl;
-    cout << "solucion[" << longitud << "] = " << arr[longitud] << endl;
+    //cout << "solucion[" << longitud << "] = " << arr[longitud] << endl;
 
     arr[longitud] = 0;
 }

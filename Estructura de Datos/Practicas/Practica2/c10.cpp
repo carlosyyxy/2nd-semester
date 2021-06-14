@@ -46,12 +46,21 @@ struct equipo
     }
 };
 equipo laLiga[30];
+
 /*---Costo en memoria---
-CM(futbolista)=mp + np + 3 + 3 =mp + 6
+CM(futbolista)=mp + np + 2 + mp + 3;
+CM(Futbolista)=2mp + np + 5;
+
 CM(estadio) = op + 3
-CM(equipo) = qp + 23mp + 138 + 8*mp 
-CM(laLiga) = (qp + 23mp + 138 + 8*mp) * 30;
-CM(laLiga) = 30qp + 690mp + 4140 + 240mp; */
+
+CM(equipo) = qp + 2 + 25 * (2mp + np + 5) + (op + 3) + qp + 8 * (2mp + np + 5)
+CM(equipo) = qp + 2 + 50mp + 25np + 125 + op + 3 + qp + 16mp + 8np + 40;
+CM(equipo) = 2qp + 170 + 66mp + 33np + op
+
+
+CM(laLiga) = (2qp + 170 + 66mp + 33np + op) * 30;
+CM(laLiga) = 30qp + 690mp + 4140 + 240mp; 
+*/
 
 /*---Cardinalidad---
 card(futbolista) = 2^mp + 2^np + 2^6;
