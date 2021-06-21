@@ -17,7 +17,6 @@ float fraccion(float x) {
   if (x == 1) {
     return 1;
   } else {
-    return (1 / x) + (1 / fraccion(x - 1));
     return (1 / x) + fraccion(x - 1);
   }
 }
